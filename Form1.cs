@@ -16,5 +16,23 @@ namespace ChatApplication
         {
             InitializeComponent();
         }
+
+       
+        private void btnGiris_Click(object sender, EventArgs e)
+        {
+            string kullaniciadi = txtKullanici.Text;
+            string sifre = txtSifre.Text;
+
+          
+            if (string.IsNullOrEmpty(kullaniciadi) || string.IsNullOrEmpty(sifre))
+            {
+                MessageBox.Show("Giris yapilamadi","Hata!",MessageBoxButtons.OKCancel,MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Giris yapildi","Basarili!!",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+      
+        }
     }
 }
