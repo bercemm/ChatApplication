@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ChatApplication
 {
-    public partial class Login : Form
+    public partial class Girisyap : Form
     {
-        public Login()
+        public Girisyap()
         {
             InitializeComponent();
         }
@@ -20,7 +20,7 @@ namespace ChatApplication
        
         private void btnGiris_Click(object sender, EventArgs e)
         {
-            string kullaniciadi = txtKullanici.Text;
+            string kullaniciadi = txtEmail.Text;
             string sifre = txtSifre.Text;
 
           
@@ -35,5 +35,11 @@ namespace ChatApplication
       
         }
 
+        private void btnkayitol_Click(object sender, EventArgs e)
+        {
+            Kayitol kayitolsayfasi = new Kayitol();
+            kayitolsayfasi.Show(); //kayıt ol butonuna tıklandıgında kayıt ol ekranını açar.
+            this.Hide(); //kayıt ekranı çıktığında logini gizler.this=logini temsil eder
+        }
     }
 }
