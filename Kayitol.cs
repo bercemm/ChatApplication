@@ -35,8 +35,9 @@ namespace ChatApplication
             this.Hide();
             Girisyap girisekrani = new Girisyap();
             girisekrani.Show();
-
+            
         }
+        
 
       
     }
