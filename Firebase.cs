@@ -14,7 +14,7 @@ namespace ChatApplication
         public static FirebaseClient Baglan()
         {
             return new FirebaseClient(
-                "https://chatapplicationbercem-default-rtdb.firebaseio.com/",
+                "https://chatapplication-b-default-rtdb.firebaseio.com/",
                 new FirebaseOptions
                 {
                     AuthTokenAsyncFactory = () => Task.FromResult(Auth)
