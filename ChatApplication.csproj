@@ -75,6 +75,7 @@
     <Compile Include="Kayitol.Designer.cs">
       <DependentUpon>Kayitol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tablolar\kullanici.cs" />
     <EmbeddedResource Include="Girisyap.resx">
       <DependentUpon>Girisyap.cs</DependentUpon>
     </EmbeddedResource>
