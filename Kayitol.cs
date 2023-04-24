@@ -45,10 +45,10 @@ namespace ChatApplication
                 !string.IsNullOrEmpty(kayitsifretekrar) || !string.IsNullOrEmpty(kayit_tamad))
             {
                
-                await Firebase.FirebaseAuthBaglan()
+                var sonuc = await Firebase.FirebaseAuthBaglan()
                    .CreateUserWithEmailAndPasswordAsync(kayitemail, kayitsifre, kayit_tamad);
-
-
+                 
+               
  
 
                 txtmail.Text = "";
