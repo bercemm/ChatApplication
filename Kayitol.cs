@@ -1,4 +1,8 @@
 ﻿using System;
+using Firebase.Auth.Providers;
+using Firebase.Auth;
+using Firebase.Auth.Repository;
+using Firebase.Storage;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,9 +22,35 @@ namespace ChatApplication
         {
             InitializeComponent();
         }
+        public async Task KayitolAsync()
+        {
 
-       private async void btnkayitol_Click(object sender, EventArgs e) 
-            //kayitol butonuna tıklayınca gerçekleşecek işlemler buraya 
+            var config = new FirebaseAuthConfig
+            {
+                ApiKey = "AIzaSyDLgYzwYJqPcBqMbejSmx8GrcqgYmWDXUw",
+                AuthDomain = "chatapplication-cd9f6.firebaseapp.com",
+                Providers = new FirebaseAuthProvider[]
+             {
+
+        new GoogleProvider().AddScopes("email"),
+        new EmailProvider()
+
+             },
+                // WPF:
+                UserRepository = new FileUserRepository("FirebaseSample")
+
+
+                UserRepository = new StorageRepository() // persist data into ApplicationDataContainer
+            };
+
+            // ...and create your FirebaseAuthClient
+            var client = new FirebaseAuthClient(config);
+            var userCredential = await client.CreateUserWithEmailAndPasswordAsync("email", "pwd", "Display Name");
+
+
+        }
+        private async void btnkayitol_Click(object sender, EventArgs e)
+        //kayitol butonuna tıklayınca gerçekleşecek işlemler buraya 
         {
             string kayitemail = txtmail.Text;
             string kayitsifre = txtsifre.Text;
@@ -35,7 +65,7 @@ namespace ChatApplication
             {
                 MessageBox.Show("Şifreler eşleşmiyor");
             }
-            else if (!string.IsNullOrEmpty(kayitemail) || !string.IsNullOrEmpty(kayitsifre) || 
+            else if (!string.IsNullOrEmpty(kayitemail) || !string.IsNullOrEmpty(kayitsifre) ||
                 !string.IsNullOrEmpty(kayitsifretekrar) || !string.IsNullOrEmpty(kayit_tamad))
             {
                 var kullanici = new kullanici();
@@ -57,12 +87,12 @@ namespace ChatApplication
 
                 MessageBox.Show("Kayıt başarılı!");
             }
-             else
+            else
             {
                 MessageBox.Show("Kayıt işlemi başarısız!");
 
             }
-            
+
         }
 
         private void btnformclosed(object sender, FormClosedEventArgs e)
@@ -70,9 +100,9 @@ namespace ChatApplication
             this.Hide();
             Girisyap girisekrani = new Girisyap();
             girisekrani.Show();
-            
+
         }
 
-        
+
     }
 }
