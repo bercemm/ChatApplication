@@ -39,7 +39,9 @@ namespace ChatApplication
         {
             Kayitol kayitolsayfasi = new Kayitol();
             kayitolsayfasi.Show(); //kayıt ol butonuna tıklandıgında kayıt ol ekranını açar.
-            this.Hide(); //kayıt ekranı çıktığında logini gizler.this=logini temsil eder
+            this.Hide(); //kayıt ekranı çıktığında logini gizler. this=logini temsil eder
         }
+
+        
     }
 }

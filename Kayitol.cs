@@ -19,32 +19,50 @@ namespace ChatApplication
             InitializeComponent();
         }
 
-       private async void btnkayitol_Click(object sender, EventArgs e)
+       private async void btnkayitol_Click(object sender, EventArgs e) 
+            //kayitol butonuna tıklayınca gerçekleşecek işlemler buraya 
         {
-            if (string.IsNullOrEmpty(txtmail.Text) || string.IsNullOrEmpty(txtsifre.Text))
+            string kayitemail = txtmail.Text;
+            string kayitsifre = txtsifre.Text;
+            string kayitsifretekrar = txtsifretekrar.Text;
+            string kayit_tamad = txttamad.Text;
+
+            if (string.IsNullOrEmpty(kayitemail) || string.IsNullOrEmpty(kayitsifre))
             {
                 MessageBox.Show("email ya da şifre boş olamaz!!", "HATA!");
             }
-            if (txtsifre.Text != txtsifretekrar.Text)
+            else if (txtsifre.Text != txtsifretekrar.Text)
             {
                 MessageBox.Show("Şifreler eşleşmiyor");
             }
-
-            var kullanici = new kullanici 
+            else if (!string.IsNullOrEmpty(kayitemail) || !string.IsNullOrEmpty(kayitsifre) || 
+                !string.IsNullOrEmpty(kayitsifretekrar) || !string.IsNullOrEmpty(kayit_tamad))
             {
-                email = txtmail.Text,
-                sifre = txtsifre.Text,
-                tamad = txttamad.Text
-            };
+                var kullanici = new kullanici();
+                kullanici.email = txtmail.Text;
+                kullanici.sifre = txtsifre.Text;
+                kullanici.tamad = txttamad.Text;
 
-            await Firebase.Baglan().Child("Kullanicilar").PostAsync(JsonConvert.SerializeObject(kullanici));
 
-            MessageBox.Show("Kayıt İşlemi Başarılı");
+                string veri = JsonConvert.SerializeObject(kullanici);
+                await Firebase.Baglan().Child("Kullanicilar").PostAsync(veri);
 
-            txtmail.Text = "";
-            txtsifre.Text = "";
-            txttamad.Text = "";
-            txtsifretekrar.Text = "";
+
+                //MessageBox.Show("Kayıt İşlemi Başarılı");
+
+                txtmail.Text = "";
+                txtsifre.Text = "";
+                txttamad.Text = "";
+                txtsifretekrar.Text = "";
+
+                MessageBox.Show("Kayıt başarılı!");
+            }
+             else
+            {
+                MessageBox.Show("Kayıt işlemi başarısız!");
+
+            }
+            
         }
 
         private void btnformclosed(object sender, FormClosedEventArgs e)

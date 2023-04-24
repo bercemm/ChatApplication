@@ -55,7 +55,7 @@
             // 
             // btnGiris
             // 
-            this.btnGiris.BackColor = System.Drawing.Color.Violet;
+            this.btnGiris.BackColor = System.Drawing.Color.SkyBlue;
             this.btnGiris.ForeColor = System.Drawing.Color.Transparent;
             this.btnGiris.Location = new System.Drawing.Point(101, 165);
             this.btnGiris.Name = "btnGiris";
@@ -87,7 +87,7 @@
             // 
             // btnkayitol
             // 
-            this.btnkayitol.BackColor = System.Drawing.Color.Violet;
+            this.btnkayitol.BackColor = System.Drawing.Color.SkyBlue;
             this.btnkayitol.ForeColor = System.Drawing.Color.Transparent;
             this.btnkayitol.Location = new System.Drawing.Point(101, 209);
             this.btnkayitol.Name = "btnkayitol";
@@ -101,6 +101,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Plum;
             this.ClientSize = new System.Drawing.Size(318, 343);
             this.Controls.Add(this.btnkayitol);
             this.Controls.Add(this.lblsifre);
@@ -108,10 +109,11 @@
             this.Controls.Add(this.btnGiris);
             this.Controls.Add(this.txtSifre);
             this.Controls.Add(this.txtEmail);
-            this.ForeColor = System.Drawing.Color.DeepPink;
+            this.ForeColor = System.Drawing.Color.Plum;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Girisyap";
             this.Text = "Giris Ekrani";
+       
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -41,6 +41,7 @@
             // 
             // txtmail
             // 
+            this.txtmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.txtmail.Location = new System.Drawing.Point(110, 44);
             this.txtmail.Name = "txtmail";
             this.txtmail.Size = new System.Drawing.Size(207, 22);
@@ -48,6 +49,7 @@
             // 
             // txtsifre
             // 
+            this.txtsifre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.txtsifre.Location = new System.Drawing.Point(110, 94);
             this.txtsifre.Name = "txtsifre";
             this.txtsifre.PasswordChar = '*';
@@ -56,12 +58,13 @@
             // 
             // btnkayitol
             // 
+            this.btnkayitol.BackColor = System.Drawing.Color.SkyBlue;
             this.btnkayitol.Location = new System.Drawing.Point(167, 235);
             this.btnkayitol.Name = "btnkayitol";
             this.btnkayitol.Size = new System.Drawing.Size(75, 23);
             this.btnkayitol.TabIndex = 2;
             this.btnkayitol.Text = "Kayıt Ol";
-            this.btnkayitol.UseVisualStyleBackColor = true;
+            this.btnkayitol.UseVisualStyleBackColor = false;
             this.btnkayitol.Click += new System.EventHandler(this.btnkayitol_Click);
             // 
             // lblmail
@@ -84,6 +87,7 @@
             // 
             // txtsifretekrar
             // 
+            this.txtsifretekrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.txtsifretekrar.Location = new System.Drawing.Point(110, 142);
             this.txtsifretekrar.Name = "txtsifretekrar";
             this.txtsifretekrar.PasswordChar = '*';
@@ -107,10 +111,10 @@
             this.lbltamad.Size = new System.Drawing.Size(54, 16);
             this.lbltamad.TabIndex = 7;
             this.lbltamad.Text = "Tam ad";
-            
             // 
             // txttamad
             // 
+            this.txttamad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.txttamad.Location = new System.Drawing.Point(110, 195);
             this.txttamad.Name = "txttamad";
             this.txttamad.PasswordChar = '*';
@@ -121,6 +125,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Plum;
             this.ClientSize = new System.Drawing.Size(457, 431);
             this.Controls.Add(this.txttamad);
             this.Controls.Add(this.lbltamad);
