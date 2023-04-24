@@ -117,7 +117,6 @@
             this.txttamad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.txttamad.Location = new System.Drawing.Point(110, 195);
             this.txttamad.Name = "txttamad";
-            this.txttamad.PasswordChar = '*';
             this.txttamad.Size = new System.Drawing.Size(207, 22);
             this.txttamad.TabIndex = 8;
             // 
