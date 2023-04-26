@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtSifre = new System.Windows.Forms.TextBox();
             this.btnGiris = new System.Windows.Forms.Button();
@@ -35,6 +36,9 @@
             this.lblsifre = new System.Windows.Forms.Label();
             this.btnkayitol = new System.Windows.Forms.Button();
             this.gosterCB = new System.Windows.Forms.CheckBox();
+            this.girisPb = new System.Windows.Forms.ProgressBar();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtEmail
@@ -110,12 +114,29 @@
             this.gosterCB.UseVisualStyleBackColor = true;
             this.gosterCB.CheckedChanged += new System.EventHandler(this.checkboxtxt_CheckedChanged);
             // 
+            // girisPb
+            // 
+            this.girisPb.BackColor = System.Drawing.Color.MediumBlue;
+            this.girisPb.ForeColor = System.Drawing.Color.Blue;
+            this.girisPb.Location = new System.Drawing.Point(198, 165);
+            this.girisPb.Name = "girisPb";
+            this.girisPb.Size = new System.Drawing.Size(56, 23);
+            this.girisPb.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.girisPb.TabIndex = 7;
+            this.girisPb.Visible = false;
+            this.girisPb.Click += new System.EventHandler(this.btnGiris_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // Girisyap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Plum;
             this.ClientSize = new System.Drawing.Size(318, 343);
+            this.Controls.Add(this.girisPb);
             this.Controls.Add(this.gosterCB);
             this.Controls.Add(this.btnkayitol);
             this.Controls.Add(this.lblsifre);
@@ -127,6 +148,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Girisyap";
             this.Text = "Giris Ekrani";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,6 +163,8 @@
         private System.Windows.Forms.Label lblsifre;
         private System.Windows.Forms.Button btnkayitol;
         private System.Windows.Forms.CheckBox gosterCB;
+        private System.Windows.Forms.ProgressBar girisPb;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

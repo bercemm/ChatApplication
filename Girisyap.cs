@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Firebase.Auth;
+using Firebase.Database;
 
 namespace ChatApplication
 {
@@ -33,11 +34,21 @@ namespace ChatApplication
             {
                 try
                 {
+                    btnGiris.Enabled = false;
+                    girisPb.Visible = true;
+
                     //yaptıgımız giriş işlemi sonuc değişkenine eşitlendi
                     var sonuc = await Firebase.FirebaseAuthBaglan().SignInWithEmailAndPasswordAsync(kullaniciadi, sifre);
+                    
                     if (sonuc.OperationType == OperationType.SignIn)
                     {
                         MessageBox.Show("Giris yapildi", "Basarili!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Hide();
+                        anaekran AnaEkran = new anaekran();
+                        AnaEkran.Show();
+                        
+
+
                     }
                     else
                         MessageBox.Show("Bu bilgilerde kullanici bulunamadi");
@@ -45,6 +56,8 @@ namespace ChatApplication
                 catch (Exception E) //try içinde hata varsa buraya geçer
                 {
                     MessageBox.Show("Bu bilgilerde kullanici bulunamadi");
+                    btnGiris.Enabled = true;
+                    girisPb.Visible = false;
                 }
 
 
