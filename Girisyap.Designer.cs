@@ -38,7 +38,9 @@
             this.gosterCB = new System.Windows.Forms.CheckBox();
             this.girisPb = new System.Windows.Forms.ProgressBar();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
             // 
             // txtEmail
@@ -94,7 +96,7 @@
             // 
             this.btnkayitol.BackColor = System.Drawing.Color.SkyBlue;
             this.btnkayitol.ForeColor = System.Drawing.Color.Transparent;
-            this.btnkayitol.Location = new System.Drawing.Point(101, 209);
+            this.btnkayitol.Location = new System.Drawing.Point(101, 224);
             this.btnkayitol.Name = "btnkayitol";
             this.btnkayitol.Size = new System.Drawing.Size(91, 27);
             this.btnkayitol.TabIndex = 5;
@@ -118,9 +120,9 @@
             // 
             this.girisPb.BackColor = System.Drawing.Color.MediumBlue;
             this.girisPb.ForeColor = System.Drawing.Color.Blue;
-            this.girisPb.Location = new System.Drawing.Point(198, 165);
+            this.girisPb.Location = new System.Drawing.Point(101, 198);
             this.girisPb.Name = "girisPb";
-            this.girisPb.Size = new System.Drawing.Size(56, 23);
+            this.girisPb.Size = new System.Drawing.Size(91, 20);
             this.girisPb.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.girisPb.TabIndex = 7;
             this.girisPb.Visible = false;
@@ -129,6 +131,10 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
             // 
             // Girisyap
             // 
@@ -149,6 +155,7 @@
             this.Name = "Girisyap";
             this.Text = "Giris Ekrani";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,6 +172,7 @@
         private System.Windows.Forms.CheckBox gosterCB;
         private System.Windows.Forms.ProgressBar girisPb;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
     }
 }
 

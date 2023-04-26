@@ -38,13 +38,13 @@ namespace ChatApplication
                     girisPb.Visible = true;
 
                     //yaptıgımız giriş işlemi sonuc değişkenine eşitlendi
-                    var sonuc = await Firebase.FirebaseAuthBaglan().SignInWithEmailAndPasswordAsync(kullaniciadi, sifre);
+                    UserCredential sonuc = await Firebase.FirebaseAuthBaglan().SignInWithEmailAndPasswordAsync(kullaniciadi, sifre);
                     
                     if (sonuc.OperationType == OperationType.SignIn)
                     {
                         MessageBox.Show("Giris yapildi", "Basarili!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Hide();
-                        anaekran AnaEkran = new anaekran();
+                        anaekran AnaEkran = new anaekran(sonuc);
                         AnaEkran.Show();
                         
 

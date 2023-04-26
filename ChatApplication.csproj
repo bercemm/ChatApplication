@@ -209,6 +209,7 @@
     <Compile Include="Girisyap.Designer.cs">
       <DependentUpon>Girisyap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kullanicisinifi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Kayitol.cs">
@@ -217,6 +218,9 @@
     <Compile Include="Kayitol.Designer.cs">
       <DependentUpon>Kayitol.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="anaekran.resx">
+      <DependentUpon>anaekran.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Girisyap.resx">
       <DependentUpon>Girisyap.cs</DependentUpon>
     </EmbeddedResource>
