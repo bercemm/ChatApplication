@@ -34,12 +34,13 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblsifre = new System.Windows.Forms.Label();
             this.btnkayitol = new System.Windows.Forms.Button();
+            this.gosterCB = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtEmail
             // 
             this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.txtEmail.Location = new System.Drawing.Point(56, 68);
+            this.txtEmail.Location = new System.Drawing.Point(40, 67);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(198, 22);
             this.txtEmail.TabIndex = 0;
@@ -47,7 +48,7 @@
             // txtSifre
             // 
             this.txtSifre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.txtSifre.Location = new System.Drawing.Point(56, 127);
+            this.txtSifre.Location = new System.Drawing.Point(40, 137);
             this.txtSifre.Name = "txtSifre";
             this.txtSifre.PasswordChar = '*';
             this.txtSifre.Size = new System.Drawing.Size(198, 22);
@@ -69,7 +70,7 @@
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.ForeColor = System.Drawing.Color.Indigo;
-            this.lblEmail.Location = new System.Drawing.Point(53, 49);
+            this.lblEmail.Location = new System.Drawing.Point(37, 39);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(41, 16);
             this.lblEmail.TabIndex = 3;
@@ -79,7 +80,7 @@
             // 
             this.lblsifre.AutoSize = true;
             this.lblsifre.ForeColor = System.Drawing.Color.Indigo;
-            this.lblsifre.Location = new System.Drawing.Point(56, 105);
+            this.lblsifre.Location = new System.Drawing.Point(37, 108);
             this.lblsifre.Name = "lblsifre";
             this.lblsifre.Size = new System.Drawing.Size(34, 16);
             this.lblsifre.TabIndex = 4;
@@ -97,12 +98,25 @@
             this.btnkayitol.UseVisualStyleBackColor = false;
             this.btnkayitol.Click += new System.EventHandler(this.btnkayitol_Click);
             // 
+            // gosterCB
+            // 
+            this.gosterCB.AutoSize = true;
+            this.gosterCB.ForeColor = System.Drawing.Color.AliceBlue;
+            this.gosterCB.Location = new System.Drawing.Point(244, 139);
+            this.gosterCB.Name = "gosterCB";
+            this.gosterCB.Size = new System.Drawing.Size(69, 20);
+            this.gosterCB.TabIndex = 6;
+            this.gosterCB.Text = "Göster";
+            this.gosterCB.UseVisualStyleBackColor = true;
+            this.gosterCB.CheckedChanged += new System.EventHandler(this.checkboxtxt_CheckedChanged);
+            // 
             // Girisyap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Plum;
             this.ClientSize = new System.Drawing.Size(318, 343);
+            this.Controls.Add(this.gosterCB);
             this.Controls.Add(this.btnkayitol);
             this.Controls.Add(this.lblsifre);
             this.Controls.Add(this.lblEmail);
@@ -113,7 +127,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Girisyap";
             this.Text = "Giris Ekrani";
-       
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,6 +140,7 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblsifre;
         private System.Windows.Forms.Button btnkayitol;
+        private System.Windows.Forms.CheckBox gosterCB;
     }
 }
 
