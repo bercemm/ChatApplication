@@ -8,18 +8,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Firebase.Auth;
+using Firebase.Auth.Providers;
 using Firebase.Database;
 
 namespace ChatApplication
 {
     public partial class Girisyap : Form
     {
-        public Girisyap()
+        private FirebaseAuthClient client;
+
+    
+
+        public Girisyap(string authdomain,string apikey)
         {
+            var config = new FirebaseAuthConfig
+            {
+                ApiKey = apikey,
+                AuthDomain = authdomain,
+                Providers = new FirebaseAuthProvider[]
+                {
+                    new EmailProvider()
+                },
+            };
+
+            this.client = new FirebaseAuthClient(config);
             InitializeComponent();
         }
-
-
         private async void btnGiris_Click(object sender, EventArgs e)
         {
             string kullaniciadi = txtEmail.Text;
@@ -37,8 +51,7 @@ namespace ChatApplication
                     btnGiris.Enabled = false;
                     girisPb.Visible = true;
 
-                    //yaptıgımız giriş işlemi sonuc değişkenine eşitlendi
-                    UserCredential sonuc = await Firebase.FirebaseAuthBaglan().SignInWithEmailAndPasswordAsync(kullaniciadi, sifre);
+                    UserCredential sonuc = await client.SignInWithEmailAndPasswordAsync(kullaniciadi, sifre);
                     
                     if (sonuc.OperationType == OperationType.SignIn)
                     {
@@ -46,14 +59,12 @@ namespace ChatApplication
                         this.Hide();
                         anaekran AnaEkran = new anaekran(sonuc);
                         AnaEkran.Show();
-                        
-
-
+                       
                     }
                     else
                         MessageBox.Show("Bu bilgilerde kullanici bulunamadi");
                 }
-                catch (Exception E) //try içinde hata varsa buraya geçer
+                catch //try içinde hata varsa buraya geçer
                 {
                     MessageBox.Show("Bu bilgilerde kullanici bulunamadi");
                     btnGiris.Enabled = true;

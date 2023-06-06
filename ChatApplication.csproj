@@ -202,7 +202,6 @@
     <Compile Include="anaekran.Designer.cs">
       <DependentUpon>anaekran.cs</DependentUpon>
     </Compile>
-    <Compile Include="Firebase.cs" />
     <Compile Include="Girisyap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +251,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Tablolar\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="config.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

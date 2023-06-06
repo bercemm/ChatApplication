@@ -19,7 +19,7 @@ namespace ChatApplication
         public anaekran(UserCredential sonuc)
         {
             InitializeComponent();
-            FirebaseClient firebaseClient = new FirebaseClient(
+           this.firebaseClient = new FirebaseClient(
                        "https://chatapplication-cd9f6-default-rtdb.firebaseio.com/",
                        new FirebaseOptions
                        {
@@ -29,15 +29,15 @@ namespace ChatApplication
             
                 }
 
-        private async void btnKullaniciEkle_Click(object sender, EventArgs e)
+        private void btnKullaniciEkle_Click(object sender, EventArgs e)
         {
             Kullanicisinifi kullanici1 = new Kullanicisinifi();
             kullanici1.displayname = "bercem";
             Kullanicisinifi kullanici2 = new Kullanicisinifi();
             kullanici2.displayname = "seda";
 
-            await firebaseclient.Child("Kullanıcılar").PutAsync(kullanici1);
-            await firebaseclient.Child("Kullanıcılar").PutAsync(kullanici2);
+            //await firebaseclient.Child("Kullanıcılar").PutAsync(kullanici1);
+            //await firebaseclient.Child("Kullanıcılar").PutAsync(kullanici2);
 
         }
     }

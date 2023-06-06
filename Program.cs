@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace ChatApplication
 {
@@ -14,9 +15,14 @@ namespace ChatApplication
         [STAThread]
         static void Main()
         {
+            XmlDocument config = new XmlDocument();
+            config.Load("config.xml");
+
+            string authDomain = config.DocumentElement.SelectSingleNode("/FireBase/AuthDomain").InnerText.Trim();
+            string apiKey = config.DocumentElement.SelectSingleNode("/FireBase/ApiKey").InnerText.Trim();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Girisyap());
+            Application.Run(new Girisyap(authDomain,apiKey));
         }
     }
 }

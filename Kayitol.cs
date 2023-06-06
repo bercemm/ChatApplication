@@ -12,14 +12,33 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
-
+using System.Xml;
 
 namespace ChatApplication
 {
     public partial class Kayitol : Form
     {
+        private string authDomain, apiKey;
+        private FirebaseAuthClient client;
         public Kayitol()
         {
+            XmlDocument xmlConfig = new XmlDocument();
+            xmlConfig.Load("config.xml");
+
+            this.authDomain = xmlConfig.DocumentElement.SelectSingleNode("/FireBase/AuthDomain").InnerText.Trim();
+            this.apiKey = xmlConfig.DocumentElement.SelectSingleNode("/FireBase/ApiKey").InnerText.Trim();
+
+            var config = new FirebaseAuthConfig
+            {
+                ApiKey = apiKey,
+                AuthDomain = authDomain,
+                Providers = new FirebaseAuthProvider[]
+                {
+                    new EmailProvider()
+                },
+            };
+
+            this.client = new FirebaseAuthClient(config);
             InitializeComponent();
         }
         
@@ -45,12 +64,8 @@ namespace ChatApplication
                 !string.IsNullOrEmpty(kayitsifretekrar) || !string.IsNullOrEmpty(kayit_tamad))
             {
                
-                var sonuc = await Firebase.FirebaseAuthBaglan()
-                   .CreateUserWithEmailAndPasswordAsync(kayitemail, kayitsifre, kayit_tamad);
+               var sonuc= await client.CreateUserWithEmailAndPasswordAsync(kayitemail, kayitsifre, kayit_tamad);
                  
-               
- 
-
                 txtmail.Text = "";
                 txtsifre.Text = "";
                 txttamad.Text = "";
@@ -69,7 +84,7 @@ namespace ChatApplication
         private void btnformclosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            Girisyap girisekrani = new Girisyap();
+            Girisyap girisekrani = new Girisyap(authDomain,apiKey);
             girisekrani.Show();
 
         }
