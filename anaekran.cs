@@ -15,15 +15,18 @@ namespace ChatApplication
 {
     public partial class anaekran : Form
     {
-        private FirebaseClient firebaseClient;
-        public anaekran(UserCredential sonuc)
+        private FirebaseClient firebaseistemci;
+        private UserCredential kullanicikimligi;
+        public anaekran(UserCredential kullanicikimligi)
         {
             InitializeComponent();
-           this.firebaseClient = new FirebaseClient(
+            this.kullanicikimligi = kullanicikimligi;
+           this.firebaseistemci = new FirebaseClient(
                        "https://chatapplication-cd9f6-default-rtdb.firebaseio.com/",
                        new FirebaseOptions
                        {
-                           AuthTokenAsyncFactory = () => sonuc.User.GetIdTokenAsync()
+                           AuthTokenAsyncFactory = () => kullanicikimligi.User.GetIdTokenAsync()
+                           //authtoken'a yetkili kullanıcının token'ınını verdik
                        });
 
             

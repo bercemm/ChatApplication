@@ -51,13 +51,13 @@ namespace ChatApplication
                     btnGiris.Enabled = false;
                     girisPb.Visible = true;
 
-                    UserCredential sonuc = await client.SignInWithEmailAndPasswordAsync(kullaniciadi, sifre);
+                    UserCredential kullanicikimligi = await client.SignInWithEmailAndPasswordAsync(kullaniciadi, sifre);
                     
-                    if (sonuc.OperationType == OperationType.SignIn)
+                    if (kullanicikimligi.OperationType == OperationType.SignIn)
                     {
                         MessageBox.Show("Giris yapildi", "Basarili!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Hide();
-                        anaekran AnaEkran = new anaekran(sonuc);
+                        anaekran AnaEkran = new anaekran(kullanicikimligi);
                         AnaEkran.Show();
                        
                     }
