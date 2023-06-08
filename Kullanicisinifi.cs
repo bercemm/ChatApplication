@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ChatApplication
+﻿namespace ChatApplication
 {
-    internal class Kullanicisinifi
+    public class Kullanicisinifi
     {
-        public string displayname { get; set; }
-      
+        public string KullaniciId { get; set; }
+        public string Email { get; set; }
+        public string TamAd { get; set; }
     }
 }

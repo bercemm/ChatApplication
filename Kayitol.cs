@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.Xml;
+using Firebase.Database;
+using Firebase.Database.Query;
 
 namespace ChatApplication
 {
@@ -20,6 +22,7 @@ namespace ChatApplication
     {
         private string authDomain, apiKey;
         private FirebaseAuthClient client;
+        private FirebaseClient firebaseistemci;
         public Kayitol()
         {
             XmlDocument xmlConfig = new XmlDocument();
@@ -39,18 +42,24 @@ namespace ChatApplication
             };
 
             this.client = new FirebaseAuthClient(config);
+            this.firebaseistemci = new FirebaseClient(
+                "https://chatapplicationn-96e04-default-rtdb.firebaseio.com/",
+                new FirebaseOptions
+                {
+                    AuthTokenAsyncFactory = () => Task.FromResult(this.apiKey)
+
+                });
             InitializeComponent();
         }
-        
+
         private async void btnkayitol_Click(object sender, EventArgs e)
         //kayitol butonuna tıklayınca gerçekleşecek işlemler buraya 
         {
+
             string kayitemail = txtmail.Text;
             string kayitsifre = txtsifre.Text;
             string kayitsifretekrar = txtsifretekrar.Text;
             string kayit_tamad = txttamad.Text;
-
-           
 
             if (string.IsNullOrEmpty(kayitemail) || string.IsNullOrEmpty(kayitsifre))
             {
@@ -63,9 +72,17 @@ namespace ChatApplication
             else if (!string.IsNullOrEmpty(kayitemail) || !string.IsNullOrEmpty(kayitsifre) ||
                 !string.IsNullOrEmpty(kayitsifretekrar) || !string.IsNullOrEmpty(kayit_tamad))
             {
-               
-               var sonuc= await client.CreateUserWithEmailAndPasswordAsync(kayitemail, kayitsifre, kayit_tamad);
-                 
+
+                var sonuc = await client.CreateUserWithEmailAndPasswordAsync(kayitemail, kayitsifre, kayit_tamad);
+
+                Kullanicisinifi kullanici = new Kullanicisinifi
+                {
+                    KullaniciId = sonuc.User.Uid,
+                    Email = kayitemail,
+                    TamAd = kayit_tamad
+                };
+
+                await firebaseistemci.Child("Kullanıcılar").PostAsync(kullanici);
                 txtmail.Text = "";
                 txtsifre.Text = "";
                 txttamad.Text = "";
@@ -79,16 +96,17 @@ namespace ChatApplication
 
             }
 
+
         }
 
         private void btnformclosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            Girisyap girisekrani = new Girisyap(authDomain,apiKey);
+            Girisyap girisekrani = new Girisyap(authDomain, apiKey);
             girisekrani.Show();
 
         }
-        
+
 
 
     }
