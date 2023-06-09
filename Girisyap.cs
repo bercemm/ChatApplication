@@ -19,12 +19,12 @@ namespace ChatApplication
 
     
 
-        public Girisyap(string authdomain,string apikey)
+        public Girisyap(Config ayarlar)
         {
             var config = new FirebaseAuthConfig
             {
-                ApiKey = apikey,
-                AuthDomain = authdomain,
+                ApiKey = ayarlar.ApiKey,
+                AuthDomain = ayarlar.AuthDomain,
                 Providers = new FirebaseAuthProvider[]
                 {
                     new EmailProvider()

@@ -15,14 +15,11 @@ namespace ChatApplication
         [STAThread]
         static void Main()
         {
-            XmlDocument config = new XmlDocument();
-            config.Load("config.xml");
-
-            string authDomain = config.DocumentElement.SelectSingleNode("/FireBase/AuthDomain").InnerText.Trim();
-            string apiKey = config.DocumentElement.SelectSingleNode("/FireBase/ApiKey").InnerText.Trim();
+            Config ayarlar = new Config();
+          
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Girisyap(authDomain,apiKey));
+            Application.Run(new Girisyap(ayarlar));
         }
     }
 }

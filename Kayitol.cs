@@ -1,18 +1,9 @@
 ﻿using System;
-using Firebase.Auth.Providers;
-using Firebase.Auth;
-using Firebase.Auth.Repository;
-using Firebase.Storage;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
 using System.Xml;
+using Firebase.Auth;
+using Firebase.Auth.Providers;
 using Firebase.Database;
 using Firebase.Database.Query;
 
@@ -20,33 +11,27 @@ namespace ChatApplication
 {
     public partial class Kayitol : Form
     {
-        private string authDomain, apiKey;
         private FirebaseAuthClient client;
         private FirebaseClient firebaseistemci;
         public Kayitol()
         {
-            XmlDocument xmlConfig = new XmlDocument();
-            xmlConfig.Load("config.xml");
-
-            this.authDomain = xmlConfig.DocumentElement.SelectSingleNode("/FireBase/AuthDomain").InnerText.Trim();
-            this.apiKey = xmlConfig.DocumentElement.SelectSingleNode("/FireBase/ApiKey").InnerText.Trim();
-
+            Config ayarlar = new Config();
             var config = new FirebaseAuthConfig
             {
-                ApiKey = apiKey,
-                AuthDomain = authDomain,
+                ApiKey = ayarlar.ApiKey,
+                AuthDomain = ayarlar.AuthDomain,
                 Providers = new FirebaseAuthProvider[]
                 {
                     new EmailProvider()
                 },
             };
-
             this.client = new FirebaseAuthClient(config);
+
             this.firebaseistemci = new FirebaseClient(
                 "https://chatapplicationn-96e04-default-rtdb.firebaseio.com/",
                 new FirebaseOptions
                 {
-                    AuthTokenAsyncFactory = () => Task.FromResult(this.apiKey)
+                    AuthTokenAsyncFactory = () => Task.FromResult(ayarlar.ApiKey)
 
                 });
             InitializeComponent();
@@ -102,12 +87,9 @@ namespace ChatApplication
         private void btnformclosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            Girisyap girisekrani = new Girisyap(authDomain, apiKey);
+            Girisyap girisekrani = new Girisyap(new Config());
             girisekrani.Show();
 
         }
-
-
-
     }
 }
