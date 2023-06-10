@@ -35,7 +35,7 @@
             // lblkullanıcılar
             // 
             this.lblkullanıcılar.AutoSize = true;
-            this.lblkullanıcılar.Location = new System.Drawing.Point(52, 9);
+            this.lblkullanıcılar.Location = new System.Drawing.Point(107, 9);
             this.lblkullanıcılar.Name = "lblkullanıcılar";
             this.lblkullanıcılar.Size = new System.Drawing.Size(71, 16);
             this.lblkullanıcılar.TabIndex = 1;
@@ -44,22 +44,23 @@
             // cbkullanicilar
             // 
             this.cbkullanicilar.FormattingEnabled = true;
-            this.cbkullanicilar.Location = new System.Drawing.Point(34, 28);
+            this.cbkullanicilar.Location = new System.Drawing.Point(48, 46);
             this.cbkullanicilar.Name = "cbkullanicilar";
-            this.cbkullanicilar.Size = new System.Drawing.Size(121, 24);
+            this.cbkullanicilar.Size = new System.Drawing.Size(212, 24);
             this.cbkullanicilar.TabIndex = 2;
             // 
             // Kullanicilar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(200, 282);
+            this.ClientSize = new System.Drawing.Size(301, 283);
             this.Controls.Add(this.cbkullanicilar);
             this.Controls.Add(this.lblkullanıcılar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Kullanicilar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Kullanicilar_FormClosed);
+            this.Load += new System.EventHandler(this.Kullanicilar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

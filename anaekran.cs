@@ -15,14 +15,15 @@ namespace ChatApplication
 {
     public partial class anaekran : Form
     {
-        private FirebaseClient firebaseistemci;
-        private UserCredential kullanicikimligi;
+        private FirebaseClient _firebaseistemci;
+        private UserCredential _kullanicikimligi;
         public anaekran(UserCredential kullanicikimligi)
         {
+            Config config = new Config();
             InitializeComponent();
-            this.kullanicikimligi = kullanicikimligi;
-            this.firebaseistemci = new FirebaseClient(
-                        "https://chatapplication-cd9f6-default-rtdb.firebaseio.com/",
+            _kullanicikimligi = kullanicikimligi;
+            _firebaseistemci = new FirebaseClient(
+                        config.FirebaseDomain,
                         new FirebaseOptions
                         {
                             AuthTokenAsyncFactory = () => kullanicikimligi.User.GetIdTokenAsync()
@@ -34,7 +35,7 @@ namespace ChatApplication
 
         private void kullanicigoruntulebtn_Click(object sender, EventArgs e)
         {
-            Kullanicilar kullanicigoruntule = new Kullanicilar(firebaseistemci, kullanicikimligi);
+            Kullanicilar kullanicigoruntule = new Kullanicilar(_firebaseistemci, _kullanicikimligi);
             kullanicigoruntule.Show();
             this.Hide();
         }

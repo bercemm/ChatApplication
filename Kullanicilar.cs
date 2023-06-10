@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Firebase.Auth;
 using Firebase.Database;
+using Firebase.Database.Query;
 
 namespace ChatApplication
 {
@@ -17,7 +18,7 @@ namespace ChatApplication
         private FirebaseClient _firebaseclient;
         private UserCredential _kullanicikimligi;
 
-        public Kullanicilar(FirebaseClient firebaseClient,UserCredential kullanicikimligi )
+        public Kullanicilar(FirebaseClient firebaseClient, UserCredential kullanicikimligi)
         {
             _firebaseclient = firebaseClient;
             _kullanicikimligi = kullanicikimligi;
@@ -30,5 +31,31 @@ namespace ChatApplication
             anaekran anaekran = new anaekran(_kullanicikimligi);
             anaekran.Show();
         }
+
+        //sayfa acıldıgında
+        private async void Kullanicilar_Load(object sender, EventArgs e)
+        {
+
+            var kullanicilar = await _firebaseclient.Child("Kullanıcılar").OrderByKey().OnceAsync<Kullanicisinifi>();
+
+            DataTable kullanicilarTablosu = new DataTable();
+            kullanicilarTablosu.Columns.Add("Id");
+            kullanicilarTablosu.Columns.Add("AdSoyad");
+
+            foreach(var kullanici in kullanicilar)
+            {
+                if(kullanici.Object.KullaniciId == _kullanicikimligi.User.Uid) 
+                {
+                    continue;
+                }
+
+                kullanicilarTablosu.Rows.Add(kullanici.Object.KullaniciId, kullanici.Object.TamAd);
+            }
+
+            cbkullanicilar.ValueMember = "Id";
+            cbkullanicilar.DisplayMember = "AdSoyad";
+            cbkullanicilar.DataSource = kullanicilarTablosu;
+        }
+        
     }
 }
