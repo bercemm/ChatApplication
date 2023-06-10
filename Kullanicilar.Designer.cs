@@ -56,7 +56,9 @@
             this.ClientSize = new System.Drawing.Size(200, 282);
             this.Controls.Add(this.cbkullanicilar);
             this.Controls.Add(this.lblkullanıcılar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Kullanicilar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Kullanicilar_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

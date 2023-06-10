@@ -62,6 +62,7 @@
             this.Controls.Add(this.kullanicigoruntulebtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "anaekran";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ana Ekran";
             this.ResumeLayout(false);
 

@@ -137,6 +137,7 @@
             this.Controls.Add(this.txtmail);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Kayitol";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.btnformclosed);
             this.ResumeLayout(false);
