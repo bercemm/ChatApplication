@@ -209,6 +209,12 @@
     <Compile Include="Girisyap.Designer.cs">
       <DependentUpon>Girisyap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kullanicilar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kullanicilar.Designer.cs">
+      <DependentUpon>Kullanicilar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kullanicisinifi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -223,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Girisyap.resx">
       <DependentUpon>Girisyap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kullanicilar.resx">
+      <DependentUpon>Kullanicilar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

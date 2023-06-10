@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.kullanicigoruntulebtn = new System.Windows.Forms.Button();
-            this.cıkısyapbtn = new System.Windows.Forms.Button();
+            this.cikisyapbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // kullanicigoruntulebtn
@@ -41,23 +41,24 @@
             this.kullanicigoruntulebtn.TabIndex = 0;
             this.kullanicigoruntulebtn.Text = "Kullanıcıları Görüntüle";
             this.kullanicigoruntulebtn.UseVisualStyleBackColor = true;
-            this.kullanicigoruntulebtn.Click += new System.EventHandler(this.btnKullaniciEkle_Click);
+            this.kullanicigoruntulebtn.Click += new System.EventHandler(this.kullanicigoruntulebtn_Click);
             // 
-            // cıkısyapbtn
+            // cikisyapbtn
             // 
-            this.cıkısyapbtn.Location = new System.Drawing.Point(26, 83);
-            this.cıkısyapbtn.Name = "cıkısyapbtn";
-            this.cıkısyapbtn.Size = new System.Drawing.Size(188, 25);
-            this.cıkısyapbtn.TabIndex = 1;
-            this.cıkısyapbtn.Text = "Çıkış Yap";
-            this.cıkısyapbtn.UseVisualStyleBackColor = true;
+            this.cikisyapbtn.Location = new System.Drawing.Point(26, 83);
+            this.cikisyapbtn.Name = "cikisyapbtn";
+            this.cikisyapbtn.Size = new System.Drawing.Size(188, 25);
+            this.cikisyapbtn.TabIndex = 1;
+            this.cikisyapbtn.Text = "Çıkış Yap";
+            this.cikisyapbtn.UseVisualStyleBackColor = true;
+            this.cikisyapbtn.Click += new System.EventHandler(this.cikisyapbtn_Click);
             // 
             // anaekran
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(237, 149);
-            this.Controls.Add(this.cıkısyapbtn);
+            this.Controls.Add(this.cikisyapbtn);
             this.Controls.Add(this.kullanicigoruntulebtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "anaekran";
@@ -69,6 +70,6 @@
         #endregion
 
         private System.Windows.Forms.Button kullanicigoruntulebtn;
-        private System.Windows.Forms.Button cıkısyapbtn;
+        private System.Windows.Forms.Button cikisyapbtn;
     }
 }

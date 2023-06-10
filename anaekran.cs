@@ -31,16 +31,19 @@ namespace ChatApplication
 
 
         }
-        private void btnKullaniciEkle_Click(object sender, EventArgs e)
+
+        private void kullanicigoruntulebtn_Click(object sender, EventArgs e)
         {
-            //Kullanicisinifi kullanici1 = new Kullanicisinifi();
-            //kullanici1.displayname = "bercem";
-            //Kullanicisinifi kullanici2 = new Kullanicisinifi();
-            //kullanici2.displayname = "seda";
+            Kullanicilar kullanicigoruntule = new Kullanicilar(firebaseistemci, kullanicikimligi);
+            kullanicigoruntule.Show();
+            this.Hide();
+        }
 
-            //await firebaseclient.Child("Kullanıcılar").PutAsync(kullanici1);
-            //await firebaseclient.Child("Kullanıcılar").PutAsync(kullanici2);
-
+        private void cikisyapbtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Girisyap giris = new Girisyap(new Config());
+            giris.Show();
         }
     }
 }

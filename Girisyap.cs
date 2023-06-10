@@ -91,5 +91,10 @@ namespace ChatApplication
             else
                 txtSifre.PasswordChar = '*';
         }
+
+        private void Girisyap_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
