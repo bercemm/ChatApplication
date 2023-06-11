@@ -96,5 +96,6 @@ namespace ChatApplication
         {
             Application.Exit();
         }
+
     }
 }

@@ -44,7 +44,7 @@ namespace ChatApplication
 
             foreach(var kullanici in kullanicilar)
             {
-                if(kullanici.Object.KullaniciId == _kullanicikimligi.User.Uid) 
+                if(kullanici.Object.KullaniciId == _kullanicikimligi.User.Uid) // giriş yapan kullanıcıyı 
                 {
                     continue;
                 }
@@ -56,6 +56,9 @@ namespace ChatApplication
             cbkullanicilar.DisplayMember = "AdSoyad";
             cbkullanicilar.DataSource = kullanicilarTablosu;
         }
-        
+
+    
+
+      
     }
 }
