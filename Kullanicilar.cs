@@ -57,8 +57,11 @@ namespace ChatApplication
             cbkullanicilar.DataSource = kullanicilarTablosu;
         }
 
-    
-
-      
+        private void btnMesajGonder_Click(object sender, EventArgs e)
+        {
+            MesajEkrani mesaj = new MesajEkrani();
+            mesaj.Show();
+            this.Hide();
+        }
     }
 }

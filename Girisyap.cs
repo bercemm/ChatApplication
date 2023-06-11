@@ -87,7 +87,7 @@ namespace ChatApplication
         private void checkboxtxt_CheckedChanged(object sender, EventArgs e)
         {
             if (gosterCB.Checked)
-                txtSifre.PasswordChar = '0';
+                txtSifre.PasswordChar = '\0';
             else
                 txtSifre.PasswordChar = '*';
         }
@@ -97,5 +97,6 @@ namespace ChatApplication
             Application.Exit();
         }
 
+       
     }
 }

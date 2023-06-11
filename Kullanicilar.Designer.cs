@@ -62,6 +62,7 @@
             this.btnMesajGonder.TabIndex = 3;
             this.btnMesajGonder.Text = "Mesaj Gönder";
             this.btnMesajGonder.UseVisualStyleBackColor = false;
+            this.btnMesajGonder.Click += new System.EventHandler(this.btnMesajGonder_Click);
             // 
             // Kullanicilar
             // 
