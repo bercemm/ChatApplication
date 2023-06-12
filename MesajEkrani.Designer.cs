@@ -48,6 +48,7 @@
             this.msjyollabuton.TabIndex = 1;
             this.msjyollabuton.Text = "Mesajı Gönder";
             this.msjyollabuton.UseVisualStyleBackColor = true;
+            this.msjyollabuton.Click += new System.EventHandler(this.msjyollabuton_Click);
             // 
             // MesajEkrani
             // 

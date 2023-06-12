@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Firebase.Auth;
 using Firebase.Database;
+using Firebase.Database.Query;
 
 namespace ChatApplication
 {
@@ -17,14 +18,6 @@ namespace ChatApplication
         private FirebaseClient _firebaseClient;
         private UserCredential _userCredential;
         private string _aliciId;
-        private FirebaseClient firebaseclient;
-        private UserCredential kullanicikimligi;
-
-        public MesajEkrani(FirebaseClient firebaseclient, UserCredential kullanicikimligi)
-        {
-            this.firebaseclient = firebaseclient;
-            this.kullanicikimligi = kullanicikimligi;
-        }
 
         public MesajEkrani(FirebaseClient firebaseClient, UserCredential userCredential, string aliciId)
         {
@@ -40,6 +33,26 @@ namespace ChatApplication
             var aliciId = _aliciId;
 
             var kullanicilar = await _firebaseClient.Child("Kullanıcılar").OnceAsync<Kullanicisinifi>(); // tüm kullanıcıları çe
+        }
+
+      
+
+        private async void msjyollabuton_Click(object sender, EventArgs e)
+        {
+            var mesajIcerik = mesajyollatxtbx.Text;
+            var gonderenId = _userCredential.User.Uid;
+            var aliciId = _aliciId;
+
+
+            var yeniMesaj = new MesajSinifi()
+            {
+                GonderenId = gonderenId,
+                AlanId = aliciId,
+                Mesaj = mesajIcerik,
+            };
+
+            await _firebaseClient.Child("mesajlar").PostAsync(yeniMesaj);
+            mesajyollatxtbx.Text = "";
         }
     }
 }

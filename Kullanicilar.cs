@@ -59,7 +59,8 @@ namespace ChatApplication
 
         private void btnMesajGonder_Click(object sender, EventArgs e)
         {
-            MesajEkrani mesaj = new MesajEkrani(_firebaseclient,_kullanicikimligi);
+            string aliciID = cbkullanicilar.SelectedValue.ToString();
+            MesajEkrani mesaj = new MesajEkrani(_firebaseclient,_kullanicikimligi,aliciID);
             mesaj.Show();
             this.Hide();
         }
