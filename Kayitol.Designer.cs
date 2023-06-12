@@ -180,6 +180,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kayıt Ol ";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.btnformclosed);
+            this.Load += new System.EventHandler(this.Kayitol_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

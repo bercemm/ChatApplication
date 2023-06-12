@@ -225,6 +225,7 @@
     <Compile Include="MesajEkrani.Designer.cs">
       <DependentUpon>MesajEkrani.cs</DependentUpon>
     </Compile>
+    <Compile Include="MesajSinifi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Kayitol.cs">
